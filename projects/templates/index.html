@@ -42,8 +42,7 @@
                 {% for post in posts %}
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <div class="view overlay">
-                            <div class="over mi" style="background-color: black;" >
+                            <div class="over" style="background-color: black;" >
                                 <a href="{% url 'project' post.title %}" class="site-link" aria-label=""></a>
                                         <div class="row mx-auto D-block">
                                             <h2 class="heading-large"><a href="{% url 'project' post.title %}"
@@ -104,7 +103,6 @@
                             <a href="{% url 'project' post.title %}">
                                 <div class="mask rgba-white-slight"></div>
                             </a>
-                        </div>
                         <div class="card-body">
                             <h4 class="card-title"><a href="{% url 'project' post.title %}">{{post.title|title}}</a> <a
                                     class="btn btn-sm btn-outline-info" href="{{ post.url }}" style=""> View</a></h4>
