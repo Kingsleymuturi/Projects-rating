@@ -25,7 +25,7 @@
                 </div>
             </div>
     </div>
-    <h5 class="mb-4 mt-4">{{ post.title }} by {{ post.user.username }} from {{ post.user.profile.location }} <span
+    <h5 class="mb-4 mt-4">{{ post.title }} by {{ post.user.username }} from {{ post.user.profile.company }} <span
             id="heart"> <i class="fas fa-heart"></i></span></h5>
 
     <div class="card">
@@ -62,7 +62,7 @@
         <div class="card-body">
             <h5 class="card-title"><strong>{{post.title|title}}</strong>
                 <a href="{{ post.url }}" style="float:right" class="btn btn-sm btn-info mr-4"> Visit </a></h5>
-            <p>by <span><a href="{% url 'userprofile' post.user.username %}" id="usern" class="mr-2">{{ post.user.username|title }}</a></span>({{post.user.profile.location}})
+            <p>by <span><a href="{% url 'userprofile' post.user.username %}" id="usern" class="mr-2">{{ post.user.username|title }}</a></span>({{post.user.profile.company}})
             </p>
             <p>{{ post.description }}</p>
             <hr>
