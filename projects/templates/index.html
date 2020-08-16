@@ -8,7 +8,7 @@
 </head>
 
 {% block content %}
-<div class="container-fluid" style="margin-top:5%;"><br>
+<div class="container" style="margin-top:5%;"><br>
         <h2 class="mt-4 text-center" style="font-size: 30px;">Website projects</h2>
         {% if user.is_authenticated %}
         <div class="modal fade bd-example-modal-xl" id="ModalCenter" tabindex="-1" role="dialog"
@@ -42,66 +42,64 @@
                 {% for post in posts %}
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                            <div class="over" style="background-color: black;" >
-                                <a href="{% url 'project' post.title %}" class="site-link" aria-label=""></a>
-                                        <div class="row mx-auto D-block">
-                                            <h2 class="heading-large"><a href="{% url 'project' post.title %}"
-                                            style="margin-top:-100px;font-family: 'Berkshire Swash', cursive;color:yellowgreen">{{ post.title }}</a>
-                                            </h2>
-                                        </div>
-                                        <div class="row mx-auto D-block">
-                                            <div class="by " style="color: white;">
-                                                by <strong><a href="" style="color: yellowgreen;">{{ post.user.username }}</a>
-                                            </strong> from <strong>{{ post.user.profile.company }}</strong>
+                            <div class="over" style="background-color: black;height: 200px;" >
+                                <div class="row mx-auto D-block">
+                                    <h2 class="heading-large"><a href="{% url 'project' post.title %}"
+                                    style="margin-top:-100px;font-family: 'Berkshire Swash', cursive;color:yellowgreen">{{ post.title }}</a>
+                                    </h2>
+                                </div>
+                                <div class="row mx-auto D-block">
+                                    <div class="by " style="color: white;">
+                                        by <strong><a href="" style="color: yellowgreen;">{{ post.user.username }}</a>
+                                    </strong> from <strong>{{ post.user.profile.company }}</strong>
+                                    </div>
+                                </div>
+                                <div class="js-notes">
+                                    <ul>
+                                        {% for rating in post.ratings.all %}
+                                        {% if forloop.counter is post.ratings.all.count %}
+                                        <li class="circle-note-progress style-design" data-note="">
+                                            <div class="circle">
+                                                <div class="des">
+                                                    <p class="d-block mx-auto textrate text-center">{{rating.design_average}}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="js-notes">
-                                            <ul>
-                                                {% for rating in post.ratings.all %}
-                                                {% if forloop.counter is post.ratings.all.count %}
-                                                <li class="circle-note-progress style-design" data-note="">
-                                                    <div class="circle">
-                                                        <div class="des">
-                                                            <p class="d-block mx-auto textrate text-center">{{rating.design_average}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="legend" style="color: white;">DESIGN</div>
-                                                </li>
-                                                <li class="circle-note-progress style-usability"
-                                                    data-note="{{rating.usability_average}}">
-                                                    <div class="circle">
-                                                        <div class="des1">
-                                                            <p class="d-block mx-auto textrate text-center">{{rating.usability_average}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="legend" style="color: white;">USABILITY</div>
-                                                </li>
-                                                <li class="circle-note-progress style-creativity"
-                                                    data-note="{{rating.content_average}}">
-                                                    <div class="circle">
-                                                         <div class="des2">
-                                                            <p class="d-block mx-auto textrate text-center">{{rating.content_average}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="legend" style="color: white;">CONTENT</div>
-                                                </li>
-                                                <li class="circle-note-progress style-content" data-note="{{ rating.score }}">
-                                                    <div class="circle">
-                                                         <div class="des3">
-                                                            <p class="d-block mx-auto textrate text-center">{{rating.score}}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="legend" style="color: white;">SCORE</div>
-                                                </li>
-                                                {% endif %}
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
+                                            <div class="legend" style="color: white;">DESIGN</div>
+                                        </li>
+                                        <li class="circle-note-progress style-usability"
+                                            data-note="{{rating.usability_average}}">
+                                            <div class="circle">
+                                                <div class="des1">
+                                                    <p class="d-block mx-auto textrate text-center">{{rating.usability_average}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="legend" style="color: white;">USABILITY</div>
+                                        </li>
+                                        <li class="circle-note-progress style-creativity"
+                                            data-note="{{rating.content_average}}">
+                                            <div class="circle">
+                                                    <div class="des2">
+                                                    <p class="d-block mx-auto textrate text-center">{{rating.content_average}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="legend" style="color: white;">CONTENT</div>
+                                        </li>
+                                        <li class="circle-note-progress style-content" data-note="{{ rating.score }}">
+                                            <div class="circle">
+                                                    <div class="des3">
+                                                    <p class="d-block mx-auto textrate text-center">{{rating.score}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="legend" style="color: white;">SCORE</div>
+                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
                             </div>
-                            <img class="card-img-top" src="{{ post.photo.cdn_url }}"
-                                 alt="{{photo.title}}">
                             <a href="{% url 'project' post.title %}">
-                                <div class="mask rgba-white-slight"></div>
+                            <img class="card-img-top" src="{{ post.photo.cdn_url }}"
+                                 alt="{{photo.title}}" style="height: 300px;">
                             </a>
                         <div class="card-body">
                             <h4 class="card-title"><a href="{% url 'project' post.title %}">{{post.title|title}}</a> <a
