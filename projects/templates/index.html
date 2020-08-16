@@ -41,7 +41,7 @@
             <div class="templates display">
                 {% for post in posts %}
                 <div class="col-md-4 mb-4">
-                    <div class="card">
+                    <div class="card" >
                             <div class="over" style="background-color: black;height: auto;" >
                                 <div class="row mx-auto D-block">
                                     <h2 class="heading-large"><a href="{% url 'project' post.title %}"
@@ -101,9 +101,8 @@
                             <img class="card-img-top" src="{{ post.photo.cdn_url }}"
                                  alt="{{photo.title}}" style="height: 300px;">
                             </a>
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="{% url 'project' post.title %}">{{post.title|title}}</a> <a
-                                    class="btn btn-sm btn-outline-info" href="{{ post.url }}">Open Site</a> <a class="btn btn-sm btn-outline-info" href="{% url 'project' post.title %}">See more</a> </h4>
+                        <div class="card-body" style="height: 200px;">
+                            <h4 class="card-title"><a class="btn btn-sm btn-outline-info" href="{{ post.url }}">Open Site</a><a class="btn btn-sm btn-outline-info" href="{% url 'project' post.title %}">See more</a> </h4>
                             <hr>
                             <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}"
                                                        class="nav-img mr-2"
