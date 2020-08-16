@@ -117,7 +117,7 @@ def edit_profile(request, username):
 def project(request, post):
     if request.method == "POST":
         upload = PostForm(request.POST)
-        if form.is_valid():
+        if upload.is_valid():
             post = form.save(commit=False)
             post.user = request.user
             post.save()

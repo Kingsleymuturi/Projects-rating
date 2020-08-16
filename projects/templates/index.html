@@ -61,8 +61,8 @@
                                         </div>
                                         <div class="box-notesite js-notes">
                                             <ul>
-                                                {% for rating in random_post.ratings.all %}
-                                                {% if forloop.counter is random_post.ratings.all.count %}
+                                                {% for rating in post.ratings.all %}
+                                                {% if forloop.counter is post.ratings.all.count %}
                                                 <li class="circle-note-progress style-design" data-note="">
                                                     <div class="circle">
                                                         <div class="des">
