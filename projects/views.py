@@ -68,7 +68,10 @@ def profile(request, username):
             post.save()
     else:
         form = PostForm()
-    return render(request, 'profile.html',{'form': form,})
+    user = User.objects.get(pk = username)
+    posts = Post.get_user_posts(user.id)
+    posts_count = posts.count()
+    return render(request, 'profile.html',{'form': form,'posts': posts})
 
 
 def user_profile(request, username):

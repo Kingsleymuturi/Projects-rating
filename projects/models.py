@@ -52,6 +52,10 @@ class Post(models.Model):
 
     def save_post(self):
         self.save()
+    
+    @classmethod
+    def get_user_posts(cls,user):
+        return cls.objects.filter(user=user)
 
 
 
