@@ -42,7 +42,7 @@
             <div class="templates display">
                 {% for post in posts %}
                 <div class="col-md-4 mb-4">
-                    <div class="card" style="height: auto;width: auto;">
+                    <div class="card">
                         <div class="view overlay">
                             <div class="box-content over mi" style="background-color: black;" >
                                 <a href="{% url 'project' post.title %}" class="site-link" aria-label=""></a>
@@ -123,6 +123,7 @@
                             </p>
                         </div>
                     </div>
+                    
                 </div>
                 {% endfor %}
             </div>
