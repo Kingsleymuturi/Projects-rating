@@ -89,7 +89,7 @@ def user_profile(request, username):
         form = PostForm()
     user_prof = get_object_or_404(User, username=username)
     if request.user == user_prof:
-        return redirect('profile', username=request.user.username)
+        return redirect('profile', username=request.user.id)
     params = {
         'user_prof': user_prof,
         'form': form,
