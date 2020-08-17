@@ -106,7 +106,7 @@ def edit_profile(request, username):
         if user_form.is_valid() and prof_form.is_valid():
             user_form.save()
             prof_form.save()
-            return redirect('profile', user.username)
+            return redirect('profile', user.id)
     else:
         user_form = UpdateUserForm(instance=request.user)
         prof_form = UpdateUserProfileForm(instance=request.user.profile)
