@@ -70,7 +70,8 @@ def profile(request, username):
         form = PostForm()
     try:
         user = User.objects.get(pk = username)
-        posts = Post.get_user_posts(user.id)
+        profile = Profile.objects.get(user = user)
+        posts = Post.get_user_posts(profile.id)
         posts_count = posts.count()
     except Post.DoesNotExist:
         posts = None
