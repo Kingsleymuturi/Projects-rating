@@ -107,7 +107,8 @@
                             <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}"
                                                        class="nav-img mr-2"
                                                        alt="">
-                                By <strong><a href="{% url 'profile' post.user.id %}" style="color: yellowgreen;">{{ post.user.username }}</a> from <strong>{{ post.user.profile.company }}</strong><br><span style="float:right">{{post.date|date}}</span>
+                                                            by <strong><a href="{% url 'profile' post.user.id %}" style="color: yellowgreen;">{{ post.user.username }}</a>
+                                                        </strong> from <strong>{{ post.user.profile.company }}</strong><br><span style="float:right">{{post.date|date}}</span>
 
 
                             </p>
