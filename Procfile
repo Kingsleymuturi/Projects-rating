@@ -1,0 +1,1 @@
+web: gunicorn projectrating.wsgi --log-file -
