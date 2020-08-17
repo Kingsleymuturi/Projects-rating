@@ -25,22 +25,18 @@
                 </div>
             </div>
     </div>
-    <img class="rounded-circle account-img content-center" src="{{ user_prof.profile.profile_picture.url }}">
-    <p class="text-center">{{user_prof.username}}</p>
-    <p class="text-center" style="color: yellowgreen;"><strong>{{user_prof.profile.bio}}</strong></p>
-    <p class="text-center"> {{user_prof.email}}</p>
-</div>
-<div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 mt-4">
-        <div class="card" style="border-radius: 70%;">
-        <img class="rounded-circle account-img d-block mx-auto" style="margin-top: 3%;" src="{{ user.profile.profile_picture.url }}">
-        <p class="text-center mt-3" style="font-size: 20px;">{{user.username}}</p>
-        <p class="text-center" style="color: yellowgreen;"><strong>{{user.profile.bio}}</strong></p>
-        <p class="text-center"> {{user_prof.email}}</p>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 mt-4">
+            <div class="card" style="border-radius: 70%;">
+            <img class="rounded-circle account-img d-block mx-auto" style="margin-top: 3%;" src="{{ user_prof.profile.profile_picture.url }}">
+            <p class="text-center mt-3" style="font-size: 20px;">{{user_prof.username}}</p>
+            <p class="text-center" style="color: yellowgreen;"><strong>{{user_prof.profile.bio}}</strong></p>
+            <p class="text-center"> {{user_prof.email}}</p>
+            </div>
         </div>
+        <div class="col-md-3"></div>
     </div>
-    <div class="col-md-3"></div>
 </div>
 <hr>
 <div class="container">

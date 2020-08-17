@@ -90,7 +90,14 @@ def user_profile(request, username):
     user_prof = get_object_or_404(User, username=username)
     if request.user == user_prof:
         return redirect('profile', username=request.user.id)
+    try:
+        posts = Post.get_user_posts(user_prof.id)
+        posts_count = posts.count()
+    except Post.DoesNotExist:
+        posts = None
     params = {
+        'posts': posts, 
+        'count': posts_count,
         'user_prof': user_prof,
         'form': form,
     }
