@@ -68,10 +68,13 @@ def profile(request, username):
             post.save()
     else:
         form = PostForm()
-    user = User.objects.get(pk = username)
-    posts = Post.get_user_posts(user.id)
-    posts_count = posts.count()
-    return render(request, 'profile.html',{'form': form,'posts': posts})
+    try:
+        user = User.objects.get(pk = username)
+        posts = Post.get_user_posts(user.id)
+        posts_count = posts.count()
+    except Post.DoesNotExist:
+        posts = None
+    return render(request, 'profile.html',{'form': form,'posts': posts, 'count': posts_count})
 
 
 def user_profile(request, username):
